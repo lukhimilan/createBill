@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JQuery AJAX Call</title>
+
+    <!--Include JQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+      // When DOM is loaded this
+      // function will get executed
+      $(() => {
+        // function will get executed
+        // on click of submit button
+        $('#submitButton').click(function (ev) {
+          var form = $('#formId');
+          var url = form.attr('action');
+          $.ajax({
+            type: 'POST',
+            url: url,
+            data: form.serialize(),
+            success: function (data) {
+              // Ajax call completed successfully
+              alert('Form Submited Successfully');
+            },
+            error: function (data) {
+              // Some error in ajax call
+              alert('Success');
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <form id="formId" action="http://192.168.0.117:3000/api/bill" method="POST">
+      <label for="firmName">Name</label>
+      <select name="firmName" id="firmName">
+        <option value="MARUTI CREATION">MARUTI CREATION</option>
+        <option value="GOPI ART">GOPI ART</option>
+        <option value="DIYA FASHION">DIYA FASHION</option>
+        <option value="MEET THREAD">MEET THREAD</option>
+        <option value="RADHE KRISHNA CREATION">RADHE KRISHNA CREATION</option>
+        <option value="MOMAYA CREATION">MOMAYA CREATION</option>
+        <option value="SHREE HANUMANT CREATION">SHREE HANUMANT CREATION</option>
+        <option value="JAI MAHALAXMI TEXTILES">JAI MAHALAXMI TEXTILES</option>
+        <option value="MAHALAXMI ART">MAHALAXMI ART</option>
+        <option value="KRISHNA FASHION">KRISHNA FASHION</option>
+        <option value="JAY AMBE JARI">JAY AMBE JARI</option>
+        <option value="UGAM CREATION">UGAM CREATION</option>
+        <option value="RADHE KRISHNA FASHION">RADHE KRISHNA FASHION</option>
+        <option value="MAHAVIR ART">MAHAVIR ART ART</option>
+        <option value="DM TEXTILE">DM TEXTILE</option>
+        <option value="R.R TEXTILE">R.R TEXTILE</option>
+        <option value="RAJ THREAD AND JARI">RAJ THREAD AND JARI</option>
+        <option value="MIRA FASHION">MIRA FASHION</option>
+        <option value="SHYAM ART">SHYAM ART</option>
+        <option value="SAGAR FASHION">SAGAR FASHION</option>
+        <option value="RIYA FASHION">RIYA FASHION</option>
+        <option value="ANSHIKA TRADERS">ANSHIKA TRADERS</option>
+        <option value="JIYA THREAD & JARI">JIYA THREAD & JARI</option>
+        <option value="SHLOK CREATION">SHLOK CREATION</option>
+        <option value="BAPASITARAM ENTERPRISE">BAPASITARAM ENTERPRISE</option>
+        <option value="SAI FASHION">SAI FASHION</option>
+      </select>
+      <br />
+      <br />
+
+      Customer Name:
+      <input type="text" id="customerName" name="customerName" />
+      <br />
+      <br />
+
+      Date:
+      <input type="date" id="date" name="date">
+      <br/>
+      <br />
+
+      Bill NO:
+      <input type="text" id="billNo" name="billNo" />
+      <br />
+      <br />
+
+      Product Name:
+      <input type="text" id="productName" name="productName" />
+      <br />
+      <br />
+
+      HSN/SAC:
+      <input type="text" id="code" name="code" />
+      <br />
+      <br />
+
+      Quantity:
+      <input type="text" id="qty" name="qty" />
+      <br />
+      <br />
+
+      Rate:
+      <input type="text" id="rate" name="rate" />
+      <br />
+      <br />
+
+      GST %:
+      <input type="text" id="gst" name="gst" />
+      <br />
+      <br />
+
+      Sub Total:
+      <input type="text" id="subTotal" name="subTotal" />
+      <br />
+      <br />
+
+      CGST:
+      <input type="text" id="cgst" name="cgst" />
+      <br />
+      <br />
+
+      SGST:
+      <input type="text" id="sgst" name="sgst" />
+      <br />
+      <br />
+
+      Total:
+      <input type="text" id="total" name="total" />
+      <br />
+      <br />
+
+      Note:
+      <input type="text" id="note" name="note" />
+      <br />
+      <br />
+
+      <button type="submit" id="submitButton">Submit</button>
+
+    </form>
+  </body>
+</html>
